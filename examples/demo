@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Demo script for using the liblog.sh logging library
+# Usage:
+#   ./demo.sh
+# Author:
+#   Dehan
+
+# Source the logging library
+export LIBLOG_LOG_LEVEL=0
+source ../liblog.sh
+
+#######################################
+# Demonstrate the usage of the logging functions in liblog.sh
+# Outputs:
+#   Logs messages at various log levels.
+#######################################
+function demo::log_messages() {
+  # Logging various messages
+  liblog::debug "This is a debug message, usually for developers."
+  liblog::info "This is an info message, for general information."
+  liblog::warn "This is a warning message, indicating a potential issue."
+  liblog::err "This is an error message, indicating a failure."
+}
+
+demo::log_messages
+
+liblog::info "Hello World!"
