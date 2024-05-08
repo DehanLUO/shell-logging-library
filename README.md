@@ -10,12 +10,19 @@ output based on severity.
 
 ## Features
 
-- [x] **Configurable Log Levels**: Debug, Info, Warn, and Error.
-- [x] **Timestamps**: Supports milliseconds precision if available.
-- [x] **Color-Coded Output**: Different colors based on log level.
-- [x] **Easy Integration**: Source the library in other scripts to start using the enhanced logging.
-- [ ] **Error Output Redirection**: Redirect error logs to separate files or syslog.
-- [ ] **Function Execution Time Tracking**: Automatically log the execution time of functions to help in performance monitoring.
+- [x] **Configurable Log Levels**:
+      Debug, Info, Warn, and Error.
+- [x] **Timestamps**:
+      Supports milliseconds precision if available.
+- [x] **Color-Coded Output**:
+      Different colors based on log level.
+- [x] **Easy Integration**:
+      Source the library in other scripts to start using the enhanced logging.
+- [ ] **Error Output Redirection**:
+      Redirect error logs to separate files or syslog.
+- [ ] **Function Execution Time Tracking**:
+      Automatically log the execution time of functions to help in performance
+      monitoring.
 
 ## Installation
 

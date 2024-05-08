@@ -303,9 +303,30 @@ function liblog::err() {
 }
 
 #######################################
+# Handles the redirection of standard error output to log it using a specific log level
+# Globals:
+#   LIBLOG_STDOUT_LEVEL
+#   LIBLOG_CASE_LOG_LEVEL_ERROR
+# Usage:
+#   exec 2> >(liblog::handle_stderr)
+# Outputs:
+#   Redirects and logs each line of stderr with error logging level
+#######################################
+function liblog::handle_stderr() {
+  while IFS= read -r line; do
+    local LIBLOG_STDOUT_LEVEL="${LIBLOG_CASE_LOG_LEVEL_ERROR}"
+    liblog::echo "${line}"
+  done
+}
+
+#######################################
 # Main function for demonstrating the enhanced logging library
 #######################################
 function liblog::main() {
+  set -E                                 # Enable inheriting of traps
+  trap 'liblog::err "$BASH_COMMAND"' ERR # Set an error handler to capture and log any errors with the executed command
+  exec 2> >(liblog::handle_stderr)       # Redirect standard error to a custom handler
+
   liblog::init
 
   if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

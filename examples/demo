@@ -6,10 +6,6 @@
 # Author:
 #   Dehan
 
-# Source the logging library
-export LIBLOG_LOG_LEVEL=0
-source ../liblog.sh
-
 #######################################
 # Demonstrate the usage of the logging functions in liblog.sh
 # Outputs:
@@ -22,6 +18,10 @@ function demo::log_messages() {
   liblog::warn "This is a warning message, indicating a potential issue."
   liblog::err "This is an error message, indicating a failure."
 }
+
+# Source the logging library
+export LIBLOG_LOG_LEVEL=0
+source ../liblog.sh
 
 demo::log_messages
 
